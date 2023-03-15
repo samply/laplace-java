@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>de.samply</groupId>
+    <artifactId>SamplyLaplace</artifactId>
+    <version>0.0.1</version>
+    <packaging>jar</packaging>
+    <description>Samply.Laplace obfuscates values inspired by differential privacy. It caches randomness to result in deterministic obfuscation.</description>
+    <!-- Define the project's dependencies -->
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.9.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+    </dependencies>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <!-- Define the build settings -->
+    <build>
+        <!-- Define the project's source directory -->
+        <sourceDirectory>src/main/java</sourceDirectory>
+
+        <!-- Define the project's test source directory -->
+        <testSourceDirectory>src/test/java</testSourceDirectory>
+
+        <!-- Define the project's output directory -->
+        <outputDirectory>target/classes</outputDirectory>
+
+        <!-- Define the project's test output directory -->
+        <testOutputDirectory>target/test-classes</testOutputDirectory>
+
+        <!-- Define the project's plugins -->
+        <plugins>
+            <!-- Define the Maven Compiler Plugin to compile the project's source code -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+
+            <!-- Define the Maven Surefire Plugin to run the project's tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                    <runOrder>random</runOrder>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.junit.jupiter</groupId>
+                        <artifactId>junit-jupiter-engine</artifactId>
+                        <version>5.9.2</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+</project>

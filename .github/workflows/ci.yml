@@ -1,0 +1,35 @@
+### This file provides a template for creating a GitHub Actions Workflow,
+### that implements the ci for a java library with maven.
+
+name: Java Library CI with Maven
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+  pull_request:
+    branches:
+      - master
+      - develop
+
+jobs:
+  build:
+    # This workflow defines how a maven package is built, tested and published.
+    # Visit: https://github.com/samply/github-workflows/blob/develop/.github/workflows/maven-ci.yml, for more information.
+    uses: samply/github-workflows/.github/workflows/maven.yml@main
+    with:
+      # If you don't want to publish SNAPSHOTS and RELEASES of your library on https://oss.sonatype.org, opt-out with:
+      # publish: false
+      # If your library needs a java version other than 8 to build, you can specify it here:
+      java-version: 11
+      # If you want to build your library with a java distribution other than temurin, specify it with:
+      # java-distribution: "openjdk"
+      # If you need special command-line parameters passed to the maven cli, you can specify them here:
+      # maven-command-line-parameters: "-P yourCustomMavenProfile"
+    # This passes the secrets from calling workflow to the called workflow
+    secrets:
+      MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
+      MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
+      OSSRH_GPG_SECRET_KEY: ${{ secrets.OSSRH_GPG_SECRET_KEY }}
+      OSSRH_GPG_SECRET_KEY_PASSWORD: ${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}

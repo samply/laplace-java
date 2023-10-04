@@ -4,9 +4,45 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.samply</groupId>
     <artifactId>SamplyLaplace</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <packaging>jar</packaging>
     <description>Samply.Laplace obfuscates values inspired by differential privacy. It caches randomness to result in deterministic obfuscation.</description>
+    <name>Samply Common Http library</name>
+    <url>https://github.com/samply/laplace-java</url>
+    <organization>
+        <name>Samply Community</name>
+    </organization>
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Tobias Kussel</name>
+            <email>tobias.kussel@dkfz-heidelberg.de</email>
+            <organization>German Cancer Research Center</organization>
+            <organizationUrl>https://www.dkfz.de/en/</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:https://github.com/samply/laplace-java.git</connection>
+        <developerConnection>scm:git:https://github.com/samply/laplace-java.git</developerConnection>
+        <url>https://github.com/samply/laplace-java</url>
+    </scm>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
     <!-- Define the project's dependencies -->
     <dependencies>
         <dependency>

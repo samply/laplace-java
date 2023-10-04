@@ -10,6 +10,7 @@ on:
       - develop
     tags:
       - '*.*.*'
+      - 'test-build'
   pull_request:
     branches:
       - main

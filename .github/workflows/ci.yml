@@ -8,6 +8,8 @@ on:
     branches:
       - master
       - develop
+    tags:
+      - '*.*.*'
   pull_request:
     branches:
       - master
@@ -20,7 +22,7 @@ jobs:
     uses: samply/github-workflows/.github/workflows/maven.yml@main
     with:
       # If you don't want to publish SNAPSHOTS and RELEASES of your library on https://oss.sonatype.org, opt-out with:
-      # publish: false
+      publish: true
       # If your library needs a java version other than 8 to build, you can specify it here:
       java-version: 11
       # If you want to build your library with a java distribution other than temurin, specify it with:
